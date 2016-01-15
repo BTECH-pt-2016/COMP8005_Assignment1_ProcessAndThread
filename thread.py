@@ -16,13 +16,11 @@ def spin_for_a_while(number):
 
 
 def main_for_io(cpu_number):
-    big_number = 10000000
     if cpu_number == 1:
-        spin_for_a_while(big_number)
         write_heavy_data()
     if cpu_number > 1:
 		thread_list = []
-		for var in range(0, 10):
+		for var in range(0, cpu_number):
 			thread_list.append(Thread(target=write_heavy_data,  args=(var,)))
 		for thread in thread_list:
 			thread.start()
